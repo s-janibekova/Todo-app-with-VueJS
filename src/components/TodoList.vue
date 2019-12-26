@@ -3,7 +3,7 @@
                         <li class="ui-state-default" v-for="todo in todos" :key="todo.id">
                             <div class="checkbox">
                                 <label>
-                                    <input type="checkbox" value="" />{{ todo.title }}h</label>
+                                    <input type="checkbox" @click="finishedTodo(todo.id)"  value="" />{{ todo.title }}h</label>
                             </div>
             </li>
         </ul>
@@ -15,6 +15,12 @@ export default {
         todos: {
             type: Array,
             required: true
+        },
+    },
+
+    methods: {
+        finishedTodo(todoId) {
+            this.$emit('completed-todo', {id: todoId})
         }
     },
     name: "TodoList"
