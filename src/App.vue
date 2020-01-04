@@ -25,40 +25,21 @@
 <script>
 import TodoList from '@/components/TodoList.vue';
 import FinishedTodos from '@/components/FinishedTodos.vue';
-import AddTodo from '@/components/AddTodo.vue';
-import { todos } from './seed.js';
+import AddTodo from '@/components/AddTodo.vue'; 
 export default {
     name: 'app',
-    data(){
-        return {
-          todos: todos
-        }
-    },
     components: {
         TodoList,
         FinishedTodos,
         AddTodo,
     },
-    methods: {
-        AddTodo(event) {
-            this.todos.push(event)
-        },
-        completedTodo(event) {
-            const index = this.todos.findIndex(todo => todo.id == event.id)
-            this.todos[index].completed = true
-        },
-        deleteTodo(event){
-            const index = this.todos.findIndex(todo => todo.id == event.id)
-            this.todos.splice(index, 1)
-        }
-    },
 
     computed: {
         finishedTodos(){
-            return this.todos.filter(todo => todo.completed === true)
+            return this.$store.getters.findTodos.filter(todo => todo.completed === true)
         },
         unFinishedTodos(){
-            return this.todos.filter(todo => todo.completed === false)
+            return this.$store.getters.findTodos.filter(todo => todo.completed === false)
         }
     }
 };

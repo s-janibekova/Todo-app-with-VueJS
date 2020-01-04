@@ -20,7 +20,7 @@ export default {
 
     methods: {
         finishedTodo(todoId) {
-            // EventBus.$emit('completed-todo', {id: todoId})
+            this.$store.dispatch('finishedTodo', { id: todoId })
         }
     },
     name: "TodoList"

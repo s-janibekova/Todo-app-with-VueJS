@@ -25,9 +25,7 @@ export default {
     },
     methods: {
         removeTodo(todoId) {
-            // EventBus.$emit('delete-todo', {
-            //     id: todoId
-            // })
+            this.$store.dispatch('removeTodo',{id: todoId} )
         }
 
     }

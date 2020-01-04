@@ -13,9 +13,7 @@ export default {
     },
     methods: {
         saveTodo(title) {
-            // EventBus.$emit('add-todo', {
-            //     title, id: Date.now.toString(), completed: false 
-            // })
+            this.$store.dispatch('addTodo', { id: Date.now().toString(), completed:false, title })
         }
     }
 }
