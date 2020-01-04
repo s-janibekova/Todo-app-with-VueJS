@@ -26,7 +26,6 @@
 import TodoList from '@/components/TodoList.vue';
 import FinishedTodos from '@/components/FinishedTodos.vue';
 import AddTodo from '@/components/AddTodo.vue';
-import EventBus from './EventBus.js'
 import { todos } from './seed.js';
 export default {
     name: 'app',
@@ -39,11 +38,6 @@ export default {
         TodoList,
         FinishedTodos,
         AddTodo,
-    },
-    created() {
-        EventBus.$on('add-todo', event => this.AddTodo(event))
-        EventBus.$on('completed-todo', event => this.completedTodo(event))
-        EventBus.$on('delete-todo', event => this.deleteTodo(event))
     },
     methods: {
         AddTodo(event) {
