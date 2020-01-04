@@ -48,6 +48,7 @@ export default {
             this.todos[index].completed = true
         },
         deleteTodo(event){
+            // debugger;
             const index = this.todos.findIndex(todo => todo.id == event.id)
             this.todos.splice(index, 1)
         }
